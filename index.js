@@ -30,6 +30,17 @@ restService.post("/echo", function(req, res) {
   });
 });
 
+
+restService.get("/Getecho", function(req, res) {
+
+  
+  return res.json({
+    speech: "This is just to check",
+    displayText: speech,
+    source: "webhook-echo-sample"
+  });
+});
+
 restService.post("/audio", function(req, res) {
   var speech = "";
   switch (req.body.result.parameters.AudioSample.toLowerCase()) {
