@@ -20,8 +20,8 @@ restService.post("/echo", function(req, res) {
 //    req.body.result.parameters.echoText
 //     ? req.body.result.parameters.echoText
 //      : "Seems like some problem. Speak again.";
-  var speech =
-    req.body.result.parameters.echoText;
+  var speech = ''You speak something;
+ //   req.body.result.parameters.echoText;
 
   
   return res.json({
