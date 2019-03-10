@@ -30,31 +30,16 @@ restService.use(bodyParser.json());
 //   });
 // });
 
-// restService.post('/echo',(req,res)=>{
+restService.post('/echo',(req,res)=>{
 
-// let response = 'This is a sample response from your webhook!' //Default response from the webhook to show it’s working
+let response = 'This is a sample response from your webhook!' //Default response from the webhook to show it’s working
 
-// res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
+res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
 
-// return res.send(JSON.stringify({ "speech": response, "displayText": response}));});
+return res.send(JSON.stringify({ "speech": response, "displayText": response}));});
 
 
-app.post('/echo',(req,res)=>{
-let response = "This is a sample response from your webhook!";//Default response from the webhook to show it’s working
-let responseObj={
-     "fulfillmentText":response
-    ,"fulfillmentMessages":[
-        {
-            "text": {
-                "text": [
-                    "Hello I m Responding to intent"
-                ]
-            }
-        }
-    ]
-    ,"source":""
-}
-return res.json(responseObj);});
+
 
 restService.get("/Getecho", function(req, res) {
 
