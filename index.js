@@ -30,11 +30,11 @@ restService.use(bodyParser.json());
 //   });
 // });
 
-let finalResponse = '';
-const QuestAsk = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : 'I did not understand for what service you have asked the question, Please ask again!';
+//let finalResponse = '';
 
 restService.post('/echo',(req,res)=>{
-  let response = 'Hi... This is First Example set by Ravish for Omnidesk App..' //Default response from the webhook to show it’s working
+  //let response = 'Hi... This is First Example set by Ravish for Omnidesk App..' //Default response from the webhook to show it’s working
+  const response = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : 'I did not understand for what service you have asked the question, Please ask again!';
 
 //   switch (response.toLowerCase()) {
       
@@ -53,7 +53,7 @@ restService.post('/echo',(req,res)=>{
   
 res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
 
-return res.send(JSON.stringify({ "speech": QuestAsk, "displayText": QuestAsk}));});
+return res.send(JSON.stringify({ "speech": response, "displayText": response}));});
 
 
 
