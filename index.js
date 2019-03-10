@@ -32,7 +32,7 @@ restService.use(bodyParser.json());
 
 restService.post('/echo',(req,res)=>{
 
-let response = 'This is a sample response from your webhook!' //Default response from the webhook to show it’s working
+let response = 'Hi... This is First Example ste by Ravish for Omnidesk App..' //Default response from the webhook to show it’s working
 
 res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
 
