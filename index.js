@@ -13,7 +13,7 @@ restService.use(
 
 restService.use(bodyParser.json());
 
-restService.post("/echo", function(req, res) {
+// restService.post("/echo", function(req, res) {
 //   var speech =
 //     req.body.result &&
 //     req.body.result.parameters &&
@@ -21,14 +21,22 @@ restService.post("/echo", function(req, res) {
 //      ? req.body.result.parameters.echoText
 //       : "Seems like some problem. Speak again.";
 
-var speech = "Hi there";
+// var speech = "Hi there";
   
-  return res.json({
-    speech: speech,
-    displayText: speech,
-    source: "webhook-echo-sample"
-  });
-});
+//   return res.json({
+//     speech: speech,
+//     displayText: speech,
+//     source: "webhook-echo-sample"
+//   });
+// });
+
+restService.post('/echo',(req,res)=>{
+
+let response = 'This is a sample response from your webhook!' //Default response from the webhook to show it’s working
+
+res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
+
+return res.send(JSON.stringify({ "speech": response, "displayText": response}));});
 
 
 restService.get("/Getecho", function(req, res) {
