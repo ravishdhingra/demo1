@@ -39,7 +39,7 @@ restService.use(bodyParser.json());
 // return res.send(JSON.stringify({ "speech": response, "displayText": response}));});
 
 
-app.post('/v2/echo',(req,res)=>{
+app.post('/echo',(req,res)=>{
 let response = "This is a sample response from your webhook!";//Default response from the webhook to show it’s working
 let responseObj={
      "fulfillmentText":response
