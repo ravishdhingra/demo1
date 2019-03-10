@@ -36,24 +36,24 @@ const QuestAsk = req.body.result && req.body.result.parameters && req.body.resul
 restService.post('/echo',(req,res)=>{
   let response = 'Hi... This is First Example set by Ravish for Omnidesk App..' //Default response from the webhook to show it’s working
 
-  switch (response.toLowerCase()) {
+//   switch (response.toLowerCase()) {
       
-      case "leave application":
-        finalResponse = 'You raised request to fill leave, Please suggest for what date you want me to fill the leave..'
-      break;
-      case "leave application":
-        finalResponse = 'You raised request to to book room for Meeting, Please suggest for what location, time, floor and room name you want me to book room for you.'
-      break;
-  });
+//       case "leave application":
+//         finalResponse = 'You raised request to fill leave, Please suggest for what date you want me to fill the leave..'
+//       break;
+//       case "leave application":
+//         finalResponse = 'You raised request to to book room for Meeting, Please suggest for what location, time, floor and room name you want me to book room for you.'
+//       break;
+//   });
 
-if (finalResponse == ""){
-  finalResponse=QuestAsk;
-}
+// if (finalResponse == ""){
+//   finalResponse=QuestAsk;
+// }
     
   
 res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
 
-return res.send(JSON.stringify({ "speech": finalResponse, "displayText": finalResponse}));});
+return res.send(JSON.stringify({ "speech": QuestAsk, "displayText": QuestAsk}));});
 
 
 
