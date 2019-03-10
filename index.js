@@ -31,35 +31,26 @@ restService.use(bodyParser.json());
 // });
 
 let finalResponse = '';
-try {
+const QuestAsk = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : 'I did not understand for what service you have asked the question, Please ask again!';
 
-  const QuestAsk = req.body.result && req.body.result.parameters && req.body.result.parameters.echoText ? req.body.result.parameters.echoText : 'I did not understand for what service you have asked the question, Please ask again!';
-
-
-  restService.post('/echo',(req,res)=>{
-
-  
+restService.post('/echo',(req,res)=>{
   let response = 'Hi... This is First Example set by Ravish for Omnidesk App..' //Default response from the webhook to show it’s working
 
-
   switch (response.toLowerCase()) {
-   case "leave application":
-     finalResponse = 'You raised request to fill leave, Please suggest for what date you want me to fill the leave..'
-     break;
-   case "leave application":
-     finalResponse = 'You raised request to to book room for Meeting, Please suggest for what location, time, floor and room name you want me to book room for you.'
-     break;
-    });
+      
+      case "leave application":
+        finalResponse = 'You raised request to fill leave, Please suggest for what date you want me to fill the leave..'
+      break;
+      case "leave application":
+        finalResponse = 'You raised request to to book room for Meeting, Please suggest for what location, time, floor and room name you want me to book room for you.'
+      break;
+  });
 
 if (finalResponse == ""){
   finalResponse=QuestAsk;
 }
     
-}
-catch(ex){
-  finalResponse = ex.toString();
-}
-    
+  
 res.setHeader('Content-Type', 'application/json'); //Requires application/json MIME type
 
 return res.send(JSON.stringify({ "speech": finalResponse, "displayText": finalResponse}));});
